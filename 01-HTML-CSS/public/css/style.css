@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definelah ukuran container dibawah ini */
+
+.container-app {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+    position: relative;
+}
+
+.container-nav {
+width: 100%;
+position: relative;
+text-align: right;
+padding-bottom: 100px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.content__top {
+    padding-top: 150px;
+}
+
+.text-type {
+    padding-bottom: 50px;
+}
+
+.content__body {
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+}
+
+.blog-section {
+    margin-left: 100px;
+    margin-right: 100px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 100px;
+}
+
+.card {
+width: 100%;
+text-align: center;
+border: 1px solid #EEEEEE;
+border-radius: 3%;
+box-shadow: 3px 1px #CFD2CF;
+}
+
+.card > img {
+    max-width: 100%;
+    border-radius: 3%;
+    padding-bottom: 15px;
+}
+
+.card h1 {
+    padding-bottom: 10px;
+}
+
+.card p {
+    text-align: justify;
+    line-height: 1.5;
+    padding: 15px 20px;
+}
+
+
+/* Buatlah styling setiap section dibawah ini */
+
+span > h1 {
+    text-align: left;
+    display: inline;
+    left: 0;
+    top: 50px;
+    position: absolute;
+    
+}
+
+nav > img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+}
+
+.headline > h1 {
+    text-align: left;
+}
+.headline > p {
+    text-align: justify;
+    line-height: 2;
+}
+
+hr {
+    border-top: 1px solid grey;
+    margin: 50px 75px;
+}
+
+
+/* Buatlah breakpoint Resposnive design dibawah ini */
+
+@media only screen and (max-width: 780px) {
+
+    .blog-section {
+        margin-left: 100px;
+        margin-right: 100px;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns:1fr;
+        column-gap: 50px;
+        row-gap: 100px;
+    }
+}
