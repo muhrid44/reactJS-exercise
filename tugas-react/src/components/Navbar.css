@@ -1,0 +1,21 @@
+.background-color {
+    background-color: #2C3333;
+    height: 5rem;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    position: relative;
+}
+
+.background-color h1 {
+    color: white;
+}
+
+.background-color img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    top: 7px;
+    right: 50px;
+    position: absolute;
+}

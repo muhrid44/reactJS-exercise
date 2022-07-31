@@ -1,0 +1,11 @@
+.author-content img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 15px 0;
+}
+
+.author-content code {
+    margin-bottom: 15px;
+    display: flex;
+}
