@@ -1,15 +1,13 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Article from "./components/Article";
+import Tugas4 from "./Tugas4/tugas4";
+import Table from "./Table/Table";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Article />
+    <div className="grid place-content-center h-48 pt-[150px]">
+      {/* // <Tugas4 /> */}
+      <Table />
     </div>
   );
 }
