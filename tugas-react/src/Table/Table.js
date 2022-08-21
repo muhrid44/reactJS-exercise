@@ -4,7 +4,6 @@ import "./Table.css";
 
 const Table = (props) => {
   const [data, setData] = useState([]);
-  // const [num, setNum] = useState(0);
 
   useEffect(() => {
     const callData = async () => {
@@ -15,6 +14,8 @@ const Table = (props) => {
     };
     callData();
   }, []);
+
+  const dataEmpty = <h1 className="text-center">Cannot found anything here :(</h1>
 
   const dataFinal = data.map((result) => {
     let indexScore = undefined;
@@ -57,8 +58,9 @@ const Table = (props) => {
             <th className="pr-[150px]">INDEX NILAI</th>
           </tr>
         </thead>
-        <tbody>{dataFinal}</tbody>
+        <tbody>{data.length !== 0 && dataFinal}</tbody>
       </table>
+      {data.length === 0 && dataEmpty}
     </div>
   );
 };
