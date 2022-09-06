@@ -12,6 +12,8 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
   const [data, setData] = useState([]);
+  const [dataFiltered, setDataFiltered] = useState([]);
+  const [inputSearch, setInputSearch] = useState("");
   const [id, setId] = useState(null);
   const [detailData, setDetailData] = useState({});
   const [userData, setUserData] = useState({
@@ -36,6 +38,7 @@ function App() {
     callData();
   }, []);
 
+
   return (
     <>
       <GlobalContext.Provider
@@ -52,7 +55,11 @@ function App() {
           register:register,
           setRegister:setRegister,
           userLogin:userLogin,
-          setUserLogin:setUserLogin
+          setUserLogin:setUserLogin,
+          dataFiltered:dataFiltered,
+          setDataFiltered:setDataFiltered,
+          inputSearch:inputSearch,
+          setInputSearch:setInputSearch
         }}
       >
         <Routes>

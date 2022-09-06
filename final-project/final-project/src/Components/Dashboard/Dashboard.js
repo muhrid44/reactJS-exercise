@@ -13,7 +13,7 @@ const Dashboard = (props) => {
     <>
       <Nav />
       <div className="flex">
-        <aside class="flex-auto w-64" aria-label="Sidebar">
+        <aside class="flex-auto w-64 h-[100%]" aria-label="Sidebar">
           <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
             <ul class="space-y-2">
               <li>
@@ -63,9 +63,9 @@ const Dashboard = (props) => {
             </ul>
           </div>
         </aside>
-        <h1 className="flex-auto w-[100%] font-bold text-[2rem] text-center mt-[50px]">
+        <div className="flex-auto w-[100%] font-bold text-[2rem] text-center mt-[50px]">
         Welcome to Dashboard, unfortunately this services are under construction :( 
-        </h1>
+        </div>
       </div>
     </>
   );

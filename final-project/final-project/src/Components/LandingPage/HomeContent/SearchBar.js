@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import GlobalContext from "../../../context/GlobalContext";
+
 
 const SearchBar = (props) => {
+
+  const ctx = useContext(GlobalContext);
+
+  const searchHandler = (event) => {
+    event.preventDefault();
+    ctx.setInputSearch(event.target.value);
+  }
+
+  const searchClick = (event) => {
+    event.preventDefault();
+
+    const searchInput = ctx.inputSearch;
+
+    const filteredContent = ctx.data.filter(result => {
+      const jobTitle = result.title
+      const jobCity = result.company_city
+
+      return searchInput === jobTitle || searchInput === jobCity;
+    });
+
+    ctx.setDataFiltered([...filteredContent]);
+    ctx.setInputSearch("")
+
+  }
+
   return (
     <div className="w-[30%] m-auto mt-[50px] mb-[50px] 2xl:w-[80%]">
     <form>
@@ -29,6 +56,8 @@ const SearchBar = (props) => {
           </svg>
         </div>
         <input
+        onChange={searchHandler}
+        value={ctx.inputSearch}
           type="search"
           id="default-search"
           class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -36,6 +65,7 @@ const SearchBar = (props) => {
           required=""
         />
         <button
+        onClick={searchClick}
           type="submit"
           class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >

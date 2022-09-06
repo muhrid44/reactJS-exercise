@@ -8,7 +8,14 @@ const HomeContent = (props) => {
 
     const ctx = useContext(GlobalContext);
 
-    const dataVacancy = ctx.data.map(result => {
+    let content = ctx.dataFiltered;
+
+    if (ctx.dataFiltered.length === 0){
+      content = ctx.data
+    };
+
+
+    const dataVacancy = content.map(result => {
 
         const detailHandler = (event) => {
             event.preventDefault()
@@ -36,7 +43,7 @@ const HomeContent = (props) => {
                 Updated at : {result.updated_at}
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Status : {result.job_tenure}
+                City : {result.company_city}
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 Salary (IDR): {result.salary_min} - {result.salary_max}
@@ -66,6 +73,10 @@ const HomeContent = (props) => {
   
         )
     })
+
+
+//OUTPUT HOME CONTENT//
+
 
   return (
     <>
