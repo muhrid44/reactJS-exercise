@@ -57,7 +57,7 @@ const Nav = (props) => {
   return (
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-        <a class="flex items-center">
+        <a onClick={homeHandler} class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white text-3xl font-['Proxima Nova']">
             <Link to="/">Work For Live</Link>
           </span>

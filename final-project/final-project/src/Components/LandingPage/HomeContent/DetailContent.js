@@ -7,14 +7,17 @@ const DetailContent = (props) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `https://dev-example.sanbercloud.com/api/job-vacancy/${ctx.id}}`
-      );
-
-      ctx.setDetailData(res.data);
+      try {
+        const res = await axios.get(
+          `https://dev-example.sanbercloud.com/api/job-vacancy/${ctx.id}}`
+        );
+        ctx.setDetailData(res.data);
+      } catch (error) {
+        ctx.navigate("/404");
+      }
     };
     getData();
-  }, []);
+  }, [ctx.dataIsFetched]);
 
   const jobStatus =
     ctx.detailData.job_status === 1 ? (
@@ -28,6 +31,7 @@ const DetailContent = (props) => {
       <img
         className="m-auto mb-[50px] h-[200px] w-auto"
         src={ctx.detailData.company_image_url}
+        alt="company_img"
       />
       <h1 className="text-[2rem] font-bold">{ctx.detailData.title}</h1>
       <div className="text-justify pl-[100px] pr-[100px] leading-loose">

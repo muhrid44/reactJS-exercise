@@ -22,6 +22,7 @@ const HomeContent = (props) => {
             let dataId = +event.target.value;
            
             ctx.setId(dataId);
+            ctx.setDataIsFetched(!ctx.dataIsFetched);
             ctx.navigate(`/details/${dataId}`)
     
         }
