@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import GlobalContext from "../../../context/GlobalContext";
 import SearchBar from "./SearchBar";
-import { Link } from "react-router-dom";
 
 
 const HomeContent = (props) => {

@@ -25,8 +25,9 @@ const Login = (props) => {
     event.preventDefault();
     const login = async () => {
         const res = await axios.post("https://dev-example.sanbercloud.com/api/login", {email, password});
-        let {token} = res.data
-        ctx.Cookies.set('token', token)
+        let {token, user} = res.data
+        ctx.Cookies.set('token',token, {expires: 1})
+        ctx.Cookies.set('user',JSON.stringify(user), {expires: 1})
         ctx.navigate("/")
     }
     login();
@@ -34,7 +35,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className="w-[20%] mt-[150px] m-auto">
+    <div className="w-[20%] mt-[150px] m-auto 2xl:w-auto 1xl:w-[75%]">
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
         <div class="py-6 px-6 lg:px-8">
           <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
@@ -55,7 +56,7 @@ const Login = (props) => {
                 id="email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="name@domain.com"
-                required
+                required={true}
               />
             </div>
             <div>
@@ -72,7 +73,7 @@ const Login = (props) => {
                 id="password"
                 placeholder="••••••••"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required
+                required={true}
               />
             </div>
             <button
